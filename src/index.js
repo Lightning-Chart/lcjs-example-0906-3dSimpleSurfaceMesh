@@ -22,62 +22,9 @@ const {
     Themes
 } = lcjs
 
-
-
-/**
- * Data generator function for the example.
- */
-function WaterDropGenerator(
-    sizeX,
-    sizeZ,
-    xPositionsNormalized,
-    zPositionsNormalized,
-    amplitudes,
-    offsetLevel,
-    volatility
-) {
-    function CalculateWavesAtPoint(
-        x,
-        z
-    ) {
-        let resultValue = 0
-        const iOscillatorCount = oscillators.length
-        for (let i = 0; i < iOscillatorCount; i++) {
-            const oscillator = oscillators[i]
-            const distX = x - oscillator.centerX
-            const distZ = z - oscillator.centerZ
-            const dist = Math.sqrt(distX * distX + distZ * distZ)
-            resultValue += oscillator.gain * oscillator.amplitude * Math.cos(dist * volatility) * Math.exp(-dist * 3.0)
-        }
-        return resultValue
-    }
-
-    const iOscCount = amplitudes.length
-    const oscillators = []
-
-    for (let iOsc = 0; iOsc < iOscCount; iOsc++) {
-        oscillators[iOsc] = {
-            amplitude: amplitudes[iOsc],
-            centerX: xPositionsNormalized[iOsc],
-            centerZ: zPositionsNormalized[iOsc],
-            gain: 1,
-            offsetY: 0
-        }
-    }
-
-    const result = Array.from(Array(sizeZ)).map(() => Array(sizeX))
-    const dTotalX = 1
-    const dTotalZ = 1
-    const stepX = (dTotalX / sizeX)
-    const stepZ = (dTotalZ / sizeZ)
-
-    for (let row = 0, z = 0; row < sizeZ; row++, z += stepZ) {
-        for (let col = 0, x = 0; col < sizeX; col++, x += stepX) {
-            result[col][row] = CalculateWavesAtPoint(x, z) + offsetLevel
-        }
-    }
-    return result
-}
+const {
+    createWaterDropDataGenerator
+} = require('@arction/xydata')
 
 
 
@@ -127,16 +74,20 @@ const surface = chart3D.addSurfaceSeries( {
 
 
 // Assign a Value to each coordinate of the Grid to be used when colouring by look up value.
-const waterdropData = WaterDropGenerator(
-    rows, // size of nodes in X
-    columns, // size of nodes in Z
-    [0.2, 0.5, 0.7], // Drop X positions in scale 0...1
-    [0.6, 0.5, 0.3], // Drop Z positions in scale 0...1
-    [23, 74, 16], // Amplitudes, as Y axis values
-    58, // Offset level (mid-Y)
-    25 // Volatility, wave generating density
-)
-surface.invalidateValuesOnly( ( row, column ) => waterdropData[row][column] )
+createWaterDropDataGenerator()
+    .setRows( rows )
+    .setColumns( columns )
+    .setWaterDrops([
+        { rowNormalized: 0.2, columnNormalized: 0.6, amplitude: 23 },
+        { rowNormalized: 0.5, columnNormalized: 0.5, amplitude: 74 },
+        { rowNormalized: 0.7, columnNormalized: 0.3, amplitude: 16 }
+    ])
+    .setOffsetLevel( 58 )
+    .setVolatility( 25 )
+    .generate()
+    .then( intensityData => {
+        surface.invalidateValuesOnly( intensityData )
+    } )
 
 
 
