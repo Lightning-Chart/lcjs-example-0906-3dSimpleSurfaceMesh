@@ -120,6 +120,8 @@ SurfaceMeshSeries3D.setFillStyle( new IndividualPointFill() )
 * [3D chart]
 * [3D surface mesh series]
 * [Grid range options]
+* [Paletted Fill Style]
+* [LUT]
 
 
 ## Support
@@ -143,7 +145,9 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[3D chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/classes/chart3d.html
-[3D surface mesh series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/classes/surfacemeshseries3d.html
-[Grid range options]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.0/interfaces/gridrangeoptions.html
+[3D chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/chart3d.html
+[3D surface mesh series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/surfacemeshseries3d.html
+[Grid range options]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/interfaces/gridrangeoptions.html
+[Paletted Fill Style]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/palettedfill.html
+[LUT]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/lut.html
 
