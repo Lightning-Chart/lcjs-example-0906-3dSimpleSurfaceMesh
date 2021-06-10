@@ -1,6 +1,6 @@
-# 3D Simple Surface Mesh
+# JavaScript 3D Simple Surface Mesh
 
-![3D Simple Surface Mesh](3dSimpleSurfaceMesh.png)
+![JavaScript 3D Simple Surface Mesh](3dSimpleSurfaceMesh.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
