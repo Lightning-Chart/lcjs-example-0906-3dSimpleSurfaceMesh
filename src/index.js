@@ -29,6 +29,7 @@ const {
 
 
 const chart3D = lightningChart().Chart3D( {
+    disableAnimations: true,
     // theme: Themes.darkGold
 } )
     .setTitle( 'Simple 3D Surface Mesh' )
