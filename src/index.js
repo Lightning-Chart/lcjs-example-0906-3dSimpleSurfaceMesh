@@ -116,7 +116,7 @@ surface.invalidateGeometryOnly( ( row, column, prev ) => {
 // Animate Camera movement from file.
 ;(async () => {
     const cameraAnimationData = await (
-        fetch( document.head.baseURI + 'examples/assets/lcjs_example_0906_3dSimpleSurfaceMesh-camera.json' )
+        fetch( document.head.baseURI + 'examples/assets/0906/camera.json' )
             .then( r => r.json() )
     )
     if ( ! cameraAnimationData ) {
