@@ -27,8 +27,6 @@ If your application requires this feature, please, contact us at support@lightni
 ## API Links
 
 * [3D chart]
-* [3D surface mesh series]
-* [Grid range options]
 * [Paletted Fill Style]
 * [LUT]
 
@@ -54,9 +52,7 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[3D chart]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/Chart3D.html
-[3D surface mesh series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/
-[Grid range options]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/
-[Paletted Fill Style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/PalettedFill.html
-[LUT]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/LUT.html
+[3D chart]: https://lightningchart.com/lightningchart-js-api-documentation/v4.1.0/classes/Chart3D.html
+[Paletted Fill Style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.1.0/classes/PalettedFill.html
+[LUT]: https://lightningchart.com/lightningchart-js-api-documentation/v4.1.0/classes/LUT.html
 
