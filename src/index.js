@@ -100,7 +100,9 @@ surface.invalidateGeometryOnly((row, column, prev) => {
 
 // Animate Camera movement from file.
 ;(async () => {
-    const cameraAnimationData = await fetch(document.head.baseURI + 'examples/assets/0906/camera.json').then((r) => r.json())
+    const cameraAnimationData = await fetch(
+        new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0906/camera.json',
+    ).then((r) => r.json())
     if (!cameraAnimationData) {
         console.log(`No Camera animation data.`)
         return
