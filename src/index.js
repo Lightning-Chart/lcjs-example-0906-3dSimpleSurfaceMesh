@@ -2,10 +2,10 @@
  * LightningChartJS example that showcases LineSeries in a 3D Chart.
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Import xydata
-const xydata = require('@arction/xydata')
+const xydata = require('@lightningchart/xydata')
 
 // Extract required parts from LightningChartJS.
 const {
@@ -58,14 +58,15 @@ const paletteValue = new LUT({
 
 const rows = 150
 const columns = rows
-const surface = chart3D.addSurfaceSeries({
-    type: SurfaceSeriesTypes3D.Mesh,
-    rows,
-    columns,
-    start: { x: 0, z: 0 },
-    end: { x: 100, z: 100 },
-    pixelate: true,
-})
+const surface = chart3D
+    .addSurfaceSeries({
+        type: SurfaceSeriesTypes3D.Mesh,
+        rows,
+        columns,
+        pixelate: true,
+    })
+    .setStart({ x: 0, z: 0 })
+    .setEnd({ x: 100, z: 100 })
 
 // Assign a Value to each coordinate of the Grid to be used when colouring by look up value.
 createWaterDropDataGenerator()
