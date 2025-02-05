@@ -146,12 +146,12 @@ const addOption = (label, onEnabled, defaultSelection = false) => {
         onEnabled()
     }
 
-    checkBox.onSwitch((_, state) => {
-        if (state) {
+    checkBox.addEventListener('switch', (event) => {
+        if (event.state) {
             onEnabled()
-            checkBox.setMouseInteractions(false)
+            checkBox.setPointerEvents(false)
             // Set all other check boxes off.
-            options.forEach((option) => option.checkBox !== checkBox && option.checkBox.setOn(false).setMouseInteractions(true))
+            options.forEach((option) => option.checkBox !== checkBox && option.checkBox.setOn(false).setPointerEvents(true))
         }
     })
 
@@ -189,7 +189,7 @@ const handleWireframeToggled = (state) => {
     wireframeCheckbox.setText(state ? 'Hide wireframe' : 'Show wireframe')
 }
 const wireframeCheckbox = group.addElement(UIElementBuilders.CheckBox)
-wireframeCheckbox.onSwitch((_, state) => handleWireframeToggled(state))
+wireframeCheckbox.addEventListener('switch', (event) => handleWireframeToggled(event.state))
 wireframeCheckbox.setOn(true)
 
 // Add UI control for toggling camera animation.
@@ -200,9 +200,9 @@ const handleCameraAnimationToggled = (state) => {
     }
 }
 const cameraAnimationEnabledCheckbox = group.addElement(UIElementBuilders.CheckBox)
-cameraAnimationEnabledCheckbox.onSwitch((_, state) => handleCameraAnimationToggled(state))
+cameraAnimationEnabledCheckbox.addEventListener('switch', (event) => handleCameraAnimationToggled(event.state))
 handleCameraAnimationToggled(true)
-chart3D.onBackgroundMouseDrag(() => {
+chart3D.background.addEventListener('pointerdown', () => {
     handleCameraAnimationToggled(false)
 })
 
