@@ -205,13 +205,3 @@ handleCameraAnimationToggled(true)
 chart3D.background.addEventListener('pointerdown', () => {
     handleCameraAnimationToggled(false)
 })
-
-// Add LegendBox to chart.
-const legend = chart3D
-    .addLegendBox()
-    .add(chart3D)
-    // Dispose example UI elements automatically if they take too much space. This is to avoid bad UI on mobile / etc. devices.
-    .setAutoDispose({
-        type: 'max-width',
-        maxWidth: 0.3,
-    })
